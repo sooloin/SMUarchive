@@ -167,7 +167,7 @@ void free_resources() {
     }
 }    
 
-
+//아래 주석은 parity bit의 위치를 맨 앞과 맨 뒤로 한정한 함수였다.
 // //비트열을 문자로 변환하는 함수 
 // //맨 뒤 비트를 제거하고 문자로 변환
 // char binary_to_char(char* binary_str) {
@@ -177,38 +177,49 @@ void free_resources() {
 //     //2진수 문자열을 문자로 변환
 //     int code = strtol(bit7, NULL, 2);
 //     return (char)code;
+// //비트열을 문자로 변환하는 함수
+// //나는 parity bit가 맨 앞에 있었다고 한다!
+// //내 답은 international!!
+// //맨 앞 비트를 제거하고 문자로 변환
+// char binary_to_char(char* binary_str) {
+//     char bit7[8] = {0};
+//     //binary_str+1에서 앞의 7비트를 복사
+//     memcpy(bit7, binary_str+1, 7);
+//     //2진수 문자열을 문자로 변환
+//     int code = strtol(bit7, NULL, 2);
+//     return (char)code;
 // }
 
-//비트열을 문자로 변환하는 함수
-//나는 parity bit가 맨 앞에 있었다고 한다!
-//내 답은 international!!
-//맨 앞 비트를 제거하고 문자로 변환
-char binary_to_char(char* binary_str) {
+
+
+// 패리티 비트 위치에 따라 비트열을 문자로 변환하는 함수
+char decode_bitstring_at_pos(const char *bitstring, int parity_pos) {
     char bit7[8] = {0};
-    //binary_str+1에서 앞의 7비트를 복사
-    memcpy(bit7, binary_str+1, 7);
-    //2진수 문자열을 문자로 변환
+    for (int i = 0, j = 0; i < 8; ++i) {
+        if (i == parity_pos) continue;   // 이 인덱스는 패리티
+        bit7[j++] = bitstring[i];
+    }
     int code = strtol(bit7, NULL, 2);
     return (char)code;
 }
 
 
+
 //패킷을 배열하여 단어를 조합하는 함수
-char *word_from_payloads(Packet *packets, int count) {
-    //단어 + Null 종료자의 공간을 확보
-    char *word = (char *)malloc(count + 1);
+char *word_from_payloads(Packet *packets, int count, int parity_pos) {
+    char *word = malloc(count + 1);
     if (!word) {
         fprintf(stderr, "메모리 할당 실패\n");
         return NULL;
     }
 
-    //패킷 배열을 순회하며 단어를 조합
+    // 각 패킷을 parity_pos 위치 기준으로 디코딩
     for (int i = 0; i < count; i++) {
-        word[i] = binary_to_char(packets[i].payload);
+        word[i] = decode_bitstring_at_pos(packets[i].payload, parity_pos);
     }
 
-    // 대소문자로 변환
-    for (int i = 0; i < count; ++i) {
+    // 모두 소문자로 정규화
+    for (int i = 0; i < count; i++) {
         word[i] = tolower((unsigned char)word[i]);
     }
 
@@ -263,25 +274,34 @@ int main(int argc, char const* argv[]) {
         
     }
 
-    char *word = word_from_payloads(res, unique_count);
-    if (word) {
-        printf("조합된 단어: %s\n", word);
+    // 각 패리티 비트 위치에 대해 시도
+    for (int parity_pos = 0; parity_pos < 8; parity_pos++) {
+        char *test_word = word_from_payloads(res, unique_count, parity_pos);
+        if (test_word) {
+            printf("\n%d번째 parity bit 제거 단어 : %s\n", parity_pos, test_word);
+            
+            // 각 시도마다 새로운 소켓 연결 생성
+            int submit_sock = initialize_socket(host, &serv_addr);
+            if (submit_sock < 0) {
+                fprintf(stderr, "제출용 소켓 생성 실패\n");
+                free(test_word);
+                continue;
+            }
 
-    } else {
-        fprintf(stderr, "단어 조합 실패\n");
-        
-    }
-
-    char response[BUFFER_SIZE];
-    int n = submit_answer(sock, sid, word, response);
-    if (n < 0) {
-        fprintf(stderr, "정답 제출 중 오류가 발생했습니다.\n");
-    } else {
-        printf("%s\n", response);
+            char response[BUFFER_SIZE];
+            int n = submit_answer(submit_sock, sid, test_word, response);
+            if (n < 0) {
+                fprintf(stderr, "정답 제출 중 오류가 발생했습니다.\n");
+            } else {
+                printf("서버 응답: %s\n", response);
+            }
+            
+            close(submit_sock);  // 제출용 소켓 닫기
+            free(test_word);
+        }
     }
 
     // 리소스 해제 및 소켓 종료
-    free(word); // 단어 메모리 해제의 타이밍이 매우 중요하다.
     free_resources();
     close(sock);
     return 0;
