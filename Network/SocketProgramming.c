@@ -194,11 +194,18 @@ void free_resources() {
 
 // 패리티 비트 위치에 따라 비트열을 문자로 변환하는 함수
 char decode_bitstring_at_pos(const char *bitstring, int parity_pos) {
-    char bit7[8] = {0};
-    for (int i = 0, j = 0; i < 8; ++i) {
-        if (i == parity_pos) continue;   // 이 인덱스는 패리티
-        bit7[j++] = bitstring[i];
+    char bit7[8] = {0};  // 7비트 + null 종료 문자
+    int j = 0;
+    
+    // 패리티 비트를 제외한 7비트를 순서대로 복사
+    for (int i = 0; i < 8; i++) {
+        if (i != parity_pos) {  // 패리티 비트가 아닌 경우만 복사
+            bit7[j++] = bitstring[i];
+        }
     }
+    bit7[7] = '\0';  // 문자열 종료
+    
+    // 2진수 문자열을 정수로 변환
     int code = strtol(bit7, NULL, 2);
     return (char)code;
 }
@@ -219,9 +226,10 @@ char *word_from_payloads(Packet *packets, int count, int parity_pos) {
     }
 
     // 모두 소문자로 정규화
-    for (int i = 0; i < count; i++) {
-        word[i] = tolower((unsigned char)word[i]);
-    }
+    // 이걸 하니까 정답이 막 세 개씩 나오고 그랬던거임 ㅋㅋㅋ
+    // for (int i = 0; i < count; i++) {
+        // word[i] = tolower((unsigned char)word[i]);
+    // }
 
     word[count] = '\0';
     return word;
