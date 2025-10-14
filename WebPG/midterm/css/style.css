@@ -1,0 +1,410 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* 네비게이션 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+
+.nav-link:hover {
+    color: #333;
+}
+
+.nav-link.active {
+    color: #135A70;
+    font-weight: 600;
+}
+
+/* 메인 hero 섹션 */
+.hero {
+    background: linear-gradient(135deg, #FDFDFD 0%, #FFF7F4 100%);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 80px 0 0 0;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 180px;
+}
+
+.hero-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1f2937;
+}
+
+.hero-strong-title {
+    font-family: 'GMarketSans', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #135A70;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    opacity: 0.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-git-item-scale:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-profile-image {
+    width: 400px;
+    height: 500px;
+    background-color: #d1d5db;
+    border-radius: 12px;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+}
+
+/* 교육 및 스택 wrapper */
+.education-stack-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.content-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #135A70;
+    margin-bottom: 10px;
+}
+
+/* 자기소개 섹션 */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #D9D9D9;
+    border-radius: 12px;
+    padding: 25px;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+}
+
+.about-subtitle {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.about-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #4b5563;
+}
+
+/* 교육 섹션 */
+.education-content {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #D9D9D9;
+    border-radius: 12px;
+    padding: 25px;
+    gap: 30px;
+}
+
+.education-category {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.education-category-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.education-items {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.education-logo {
+    width: 53px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.education-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.education-main {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1f2937;
+    line-height: 1.4;
+}
+
+.education-sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+
+/* 스택 섹션 */
+.stack-content {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #D9D9D9;
+    border-radius: 12px;
+    padding: 25px;
+    gap: 33px;
+}
+
+.stack-category {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stack-category-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.stack-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.stack-icon {
+    width: 48px;
+    height: auto;
+}
+
+.stack-icon:hover {
+    transform: translateY(-2px) scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* PC 반응형 디자인 */
+@media (max-width: 1440px) {
+    .hero-container,
+    .main-content {
+        max-width: 1000px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 28px;
+    }
+    
+    .main-profile-image {
+        width: 350px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .nav-container,
+    .hero-container,
+    .main-content {
+        padding: 0 30px;
+    }
+    
+    .hero-content {
+        gap: 60px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 26px;
+    }
+    
+    .main-profile-image {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-image {
+        order: -1;
+        display: none;
+    }
+    
+    .main-profile-image {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 24px;
+    }
+    
+    
+    .education-stack-wrapper {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-stack-wrapper {
+        gap: 40px;
+    }
+    
+    .content-section {
+        margin-bottom: 40px;
+    }
+    
+    .education-items {
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+        gap: 15px;
+    }
+    
+    .education-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
