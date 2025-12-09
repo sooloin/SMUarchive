@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>친구 - 에브리타임</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/friends.css">
+</head>
+<body class="friends-page">
+    <!-- 네비게이션 바 (JavaScript로 로드) -->
+    <div id="navbar-container"></div>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="main-wrapper friends-layout">
+        <!-- 왼쪽 사이드바: 친구 목록 -->
+        <aside class="friends-sidebar">
+            <button class="add-friend-btn">친구 추가</button>
+            <div class="friends-list-container">
+                <div class="friend-list-item active" data-friend-id="kangminju" data-favorite="true">
+                    <span class="star-icon filled">★</span>
+                    <span class="friend-name-text">강민주</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="kimyuri" data-favorite="true">
+                    <span class="star-icon filled">★</span>
+                    <span class="friend-name-text">김유리</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="junghaneul" data-favorite="true">
+                    <span class="star-icon filled">★</span>
+                    <span class="friend-name-text">정하늘</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="kangyehyun" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">강예현</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="kanghyewoon" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">강혜운</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="kimsoyeon" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">김소연</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="ryusuyeon" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">류수연</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="simyoungju" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">심영주</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="ohyunkyung" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">오윤경</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="leegoeun" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">이고은</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="janghyeri" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">장혜리</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="jangheejung" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">장희정</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="hwangheesoo" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">황희수</span>
+                </div>
+                <div class="friend-list-item" data-friend-id="guhyeonhee" data-favorite="false">
+                    <span class="star-icon">☆</span>
+                    <span class="friend-name-text">구현희</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 오른쪽 메인 컬럼: 시간표 -->
+        <main class="timetable-content">
+            <!-- 학기 선택 -->
+            <div class="semester-selector">
+                <div class="semester-dropdown">
+                    <span class="semester-text">2025년 2학기</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div class="semester-menu"></div>
+            </div>
+
+            <!-- 시간표 그리드 (JavaScript로 로드) -->
+            <div id="timetable-container"></div>
+        </main>
+    </div>
+
+    <!-- 푸터 (JavaScript로 로드) -->
+    <div id="footer-container"></div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/friends.js"></script>
+</body>
+</html>

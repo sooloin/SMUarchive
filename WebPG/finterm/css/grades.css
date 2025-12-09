@@ -1,0 +1,357 @@
+/* 학점 페이지 스타일 */
+
+/* 메인 컬럼: 학점 */
+.grades-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 통계 요약 */
+.grades-summary {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 24px;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.summary-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.summary-item:hover {
+    background-color: #F5F5F5;
+}
+
+.summary-label {
+    font-size: 14px;
+    color: #808080;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+.summary-value {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.gpa-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2856A9;
+    transition: color 0.2s ease;
+}
+
+.gpa-max {
+    font-size: 20px;
+    color: #A0A0A0;
+    font-weight: 400;
+}
+
+.settings-icon {
+    font-size: 18px;
+    color: #A0A0A0;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.settings-icon:hover {
+    color: #000000;
+    background-color: #F5F5F5;
+    transform: rotate(90deg);
+}
+
+/* 그래프 섹션 */
+.graphs-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.graph-container {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 24px;
+    height: 300px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease;
+}
+
+.graph-container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.graph-container canvas {
+    max-height: 100%;
+}
+
+/* 학기 탭 */
+.semester-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 학기 탭 스크롤바 스타일링 */
+.semester-tabs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.semester-tabs::-webkit-scrollbar-track {
+    background: #F5F5F5;
+    border-radius: 3px;
+}
+
+.semester-tabs::-webkit-scrollbar-thumb {
+    background: #B8D4F0;
+    border-radius: 3px;
+}
+
+.semester-tabs::-webkit-scrollbar-thumb:hover {
+    background: #A8C5E2;
+}
+
+.semester-tab {
+    padding: 10px 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    font-weight: 400;
+    position: relative;
+}
+
+.semester-tab:hover {
+    background-color: #F5F5F5;
+    border-color: #D0D0D0;
+    color: #000000;
+}
+
+.semester-tab.active {
+    background-color: #2856A9;
+    color: #FFFFFF;
+    border-color: #2856A9;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(40, 86, 169, 0.2);
+}
+
+.semester-tab.active:hover {
+    background-color: #1e3f7a;
+    border-color: #1e3f7a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40, 86, 169, 0.3);
+}
+
+/* 학기별 상세 정보 */
+.semester-detail {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.semester-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.semester-header > div:first-child {
+    flex: 1;
+}
+
+.semester-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2856A9;
+    margin-bottom: 4px;
+}
+
+.semester-summary {
+    font-size: 14px;
+    color: #808080;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+.load-timetable-btn {
+    padding: 10px 20px;
+    background-color: #2856A9;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Pretendard', sans-serif;
+    box-shadow: 0 2px 4px rgba(40, 86, 169, 0.2);
+}
+
+.load-timetable-btn:hover {
+    background-color: #F5F5F5;
+    color: #000000;
+}
+
+.load-timetable-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(40, 86, 169, 0.2);
+}
+
+/* 과목 테이블 */
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.courses-table thead {
+    background-color: #F0F5FF;
+}
+
+.courses-table th {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2856A9;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.courses-table td {
+    padding: 14px 12px;
+    font-size: 14px;
+    color: #000000;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.courses-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.courses-table tbody tr:hover {
+    background-color: #F5F5F5;
+}
+
+.courses-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.course-name {
+    font-weight: 500;
+}
+
+.course-credits {
+    text-align: center;
+}
+
+.course-grade {
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+}
+
+/* 성적별 색상 (파스텔 톤) */
+.course-grade.grade-a-plus {
+    color: #6BA3D8;
+}
+
+.course-grade.grade-a-zero {
+    color: #8BC4E8;
+}
+
+.course-grade.grade-b-plus {
+    color: #A8C5E2;
+}
+
+.course-grade.grade-b-zero {
+    color: #B8D4F0;
+}
+
+.course-grade.grade-p {
+    color: #C0C0C0;
+}
+
+.course-major {
+    text-align: center;
+}
+
+.major-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2856A9;
+}
+
+/* 프로필 버튼 active 상태 */
+.profile-btn.active {
+    background-color: #2856A9;
+    color: #FFFFFF;
+    border-color: #2856A9;
+}
+
+.profile-btn.active:hover {
+    background-color: #1e3f7a;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .graphs-section {
+        grid-template-columns: 1fr;
+    }
+
+    .grades-summary {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grades-content {
+        padding: 20px;
+    }
+
+    .semester-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .semester-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .load-timetable-btn {
+        width: 100%;
+    }
+}
+

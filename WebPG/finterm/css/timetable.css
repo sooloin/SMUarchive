@@ -1,0 +1,227 @@
+/* 시간표 페이지 스타일 */
+
+/* 메인 컬럼: 시간표 */
+.timetable-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.semester-selector {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.semester-dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 0;
+    position: relative;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    color: #A0A0A0;
+}
+
+.semester-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    margin-top: 4px;
+    min-width: 180px;
+}
+
+.semester-menu.show {
+    display: block;
+}
+
+.semester-menu-item {
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.semester-menu-item:hover {
+    background-color: #F5F5F5;
+}
+
+.semester-menu-item:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.semester-menu-item:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* 시간표 그리드 */
+.timetable-container {
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.timetable-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(6, 1fr);
+    grid-template-rows: 40px repeat(10, 60px);
+    gap: 1px;
+    background-color: #E0E0E0;
+    border: 1px solid #E0E0E0;
+    min-width: 800px;
+}
+
+/* 헤더 행 스타일 */
+.timetable-header {
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    min-height: 40px;
+}
+
+.timetable-header:first-child {
+    background-color: #F5F5F5;
+    border-right: 2px solid #E0E0E0;
+}
+
+/* 교시 헤더 열 스타일 */
+.timetable-period {
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 8px 12px;
+    gap: 4px;
+    border-right: 2px solid #E0E0E0;
+}
+
+.period-number {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.4;
+}
+
+.period-time {
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.4;
+}
+
+/* 시간표 셀 */
+.timetable-cell {
+    background-color: #FFFFFF;
+    min-height: 60px;
+    padding: 4px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* 과목 셀 */
+.course-cell {
+    background-color: #E8F5E9;
+    border: 1px solid #C8E6C9;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.course-cell:hover {
+    opacity: 0.8;
+}
+
+.course-cell[data-course="iot"] {
+    background-color: #E3F2FD;
+    border-color: #90CAF9;
+}
+
+.course-cell[data-course="web"] {
+    background-color: #FCE4EC;
+    border-color: #F8BBD0;
+}
+
+.course-cell[data-course="system"] {
+    background-color: #E8F5E9;
+    border-color: #C8E6C9;
+}
+
+.course-cell[data-course="architecture"] {
+    background-color: #FFEBEE;
+    border-color: #FFCDD2;
+}
+
+.course-cell[data-course="distributed"] {
+    background-color: #E8F5E9;
+    border-color: #C8E6C9;
+}
+
+.course-cell[data-course="biotech"] {
+    background-color: #FFF9C4;
+    border-color: #FFF59D;
+}
+
+.course-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.2;
+}
+
+.course-instructor {
+    font-size: 11px;
+    color: #666666;
+}
+
+.course-room {
+    font-size: 11px;
+    color: #666666;
+}
+
+/* 프로필 버튼 active 상태 */
+.profile-btn.active {
+    background-color: #2856A9;
+    color: #FFFFFF;
+    border-color: #2856A9;
+}
+
+.profile-btn.active:hover {
+    background-color: #1e3f7a;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .timetable-content {
+        padding: 20px;
+    }
+
+    .timetable-grid {
+        grid-template-columns: 80px repeat(6, 1fr);
+        grid-template-rows: 35px repeat(10, 50px);
+        min-width: 600px;
+    }
+}
+

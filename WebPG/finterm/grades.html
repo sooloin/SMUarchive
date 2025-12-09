@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학점 - 에브리타임</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/grades.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- 네비게이션 바 (JavaScript로 로드) -->
+    <div id="navbar-container"></div>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="main-wrapper">
+        <!-- 왼쪽 메인 컬럼: 학점 -->
+        <main class="main-content grades-content">
+            <!-- 통계 요약 -->
+            <div class="grades-summary">
+                <div class="summary-item">
+                    <div class="summary-label">전체 평점</div>
+                    <div class="summary-value">
+                        <span class="gpa-value" id="overall-gpa">3.69</span>
+                        <span class="gpa-max">/ 4.5</span>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">전공 평점</div>
+                    <div class="summary-value">
+                        <span class="gpa-value" id="major-gpa">3.61</span>
+                        <span class="gpa-max">/ 4.5</span>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">취득 학점</div>
+                    <div class="summary-value">
+                        <span class="gpa-value" id="acquired-credits">111</span>
+                        <span class="gpa-max">/ 130</span>
+                        <span class="settings-icon">⚙</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 그래프 섹션 -->
+            <div class="graphs-section">
+                <!-- GPA 트렌드 그래프 -->
+                <div class="graph-container">
+                    <canvas id="gpa-trend-chart"></canvas>
+                </div>
+                <!-- 성적 분포 그래프 -->
+                <div class="graph-container">
+                    <canvas id="grade-distribution-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- 학기 탭 -->
+            <div class="semester-tabs" id="semester-tabs">
+                <!-- JavaScript로 동적 생성 -->
+            </div>
+
+            <!-- 학기별 상세 정보 -->
+            <div class="semester-detail" id="semester-detail">
+                <!-- JavaScript로 동적 생성 -->
+            </div>
+        </main>
+
+        <!-- 오른쪽 사이드바 -->
+        <aside class="sidebar">
+            <!-- 사용자 프로필 -->
+            <div class="user-profile">
+                <div class="profile-image">
+                    <img src="img/jopeng.jpg" alt="profile-image">
+                </div>
+                <div class="profile-name">조펭이</div>
+                <div class="profile-subtitle">조수빈</div>
+                <div class="profile-id">csb7543</div>
+                <div class="profile-buttons">
+                    <button class="profile-btn" onclick="window.location.href='timetable.html'">시간표</button>
+                    <button class="profile-btn active">학점</button>
+                    <button class="profile-btn">내 강의실</button>
+                    <button class="profile-btn">회원 정보</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 푸터 (JavaScript로 로드) -->
+    <div id="footer-container"></div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/grades.js"></script>
+</body>
+</html>
+
